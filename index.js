@@ -37,7 +37,18 @@ function todos (state = [], action) {
       return state.concat([action.todo])
     case 'REMOVE_TODO' :
       return state.filter((todo) => todo.id !== action.id)
-    case 'TOGGLE_TODO' :
+    case 'TOGGLE_TODO':
+{/*      const src1 = { a: 1, b: 2 };
+         const src2 = { b: 4, c: 5 };
+         const target = Object.assign({},src1, src2);
+         console.log(target);
+         {/*
+           This function Object.assing() copies all properties (keys) of one or more source objects to the target object
+         and if one or more properties exist, they will be overwritten.
+         in this above code, target and source will be assigned to empty object {} which will be returned to 'target'
+         note: onject.assign ('X' ,  ...Sources ) if 'X' was src1 or src2 or what ever predefined variable, its content will be overwritten
+         /}
+*/}
       return state.map((todo) => todo.id !== action.id ? todo :
         Object.assign({}, todo, { complete: !todo.complete }))
     default :
